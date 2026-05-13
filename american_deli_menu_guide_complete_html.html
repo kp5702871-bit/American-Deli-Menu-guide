@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>American Deli Menu Guide</title>
+
+  <meta name="description" content="Explore the American Deli menu including wings, burgers, cheesesteaks, salads, seafood, combo meals, and more delicious comfort food favorites.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Poppins',sans-serif;
+      background:linear-gradient(to bottom,#f8f9fa,#ececec);
+      color:#222;
+      line-height:1.8;
+    }
+
+    a{
+      text-decoration:none;
+      color:#e63946;
+      font-weight:600;
+    }
+
+    .navbar{
+      position:sticky;
+      top:0;
+      z-index:999;
+      background:rgba(17,17,17,0.95);
+      backdrop-filter:blur(10px);
+      padding:15px 0;
+    }
+
+    .nav-container{
+      width:90%;
+      max-width:1200px;
+      margin:auto;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    .navbar h2{
+      color:white;
+      font-size:1.4rem;
+    }
+
+    .navbar a{
+      background:#e63946;
+      color:white;
+      padding:10px 22px;
+      border-radius:50px;
+      transition:0.3s ease;
+    }
+
+    .navbar a:hover{
+      background:#c1121f;
+    }
+
+    .hero{
+      background:
+      linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.65)),
+      url('https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=1600&auto=format&fit=crop')
+      center/cover no-repeat;
+
+      height:70vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      color:white;
+      padding:20px;
+    }
+
+    .hero-content{
+      max-width:850px;
+    }
+
+    .hero h1{
+      font-size:4rem;
+      line-height:1.2;
+      margin-bottom:20px;
+    }
+
+    .hero p{
+      font-size:1.2rem;
+      opacity:0.95;
+    }
+
+    .btn{
+      display:inline-block;
+      margin-top:30px;
+      padding:14px 32px;
+      background:#e63946;
+      color:white;
+      border-radius:50px;
+      transition:0.3s ease;
+      font-size:1rem;
+    }
+
+    .btn:hover{
+      background:#c1121f;
+      transform:translateY(-3px) scale(1.03);
+      box-shadow:0 10px 20px rgba(0,0,0,0.15);
+    }
+
+    .container{
+      width:90%;
+      max-width:1200px;
+      margin:auto;
+      padding:80px 0;
+    }
+
+    .intro{
+      background:white;
+      padding:40px;
+      border-radius:24px;
+      margin-top:-70px;
+      position:relative;
+      z-index:10;
+      box-shadow:0 15px 40px rgba(0,0,0,0.08);
+    }
+
+    .intro p{
+      font-size:1.05rem;
+    }
+
+    .section{
+      margin-top:70px;
+      opacity:0;
+      transform:translateY(50px);
+      animation:reveal 1s forwards;
+    }
+
+    @keyframes reveal{
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    .section-title{
+      font-size:2.2rem;
+      margin-bottom:20px;
+      color:#111;
+      position:relative;
+      padding-left:18px;
+    }
+
+    .section-title::before{
+      content:'';
+      position:absolute;
+      left:0;
+      top:10px;
+      width:6px;
+      height:40px;
+      background:#e63946;
+      border-radius:10px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:25px;
+      margin-top:35px;
+    }
+
+    .card{
+      background:white;
+      border-radius:22px;
+      overflow:hidden;
+      box-shadow:0 10px 25px rgba(0,0,0,0.07);
+      transition:0.3s ease;
+      animation:fadeUp 0.8s ease;
+    }
+
+    .card:hover{
+      transform:translateY(-8px);
+    }
+
+    @keyframes fadeUp{
+      from{
+        opacity:0;
+        transform:translateY(40px);
+      }
+
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    .card img{
+      width:100%;
+      height:220px;
+      object-fit:cover;
+    }
+
+    .card-content{
+      padding:25px;
+    }
+
+    .card h3{
+      margin-bottom:12px;
+      color:#111;
+    }
+
+    .highlight-box{
+      background:linear-gradient(135deg,#e63946,#ff6b6b);
+      color:white;
+      padding:40px;
+      border-radius:24px;
+      margin-top:60px;
+      box-shadow:0 12px 30px rgba(230,57,70,0.25);
+    }
+
+    .highlight-box h2{
+      margin-bottom:20px;
+      font-size:2rem;
+    }
+
+    .list{
+      margin-top:20px;
+      padding-left:20px;
+    }
+
+    .list li{
+      margin-bottom:12px;
+    }
+
+    .cta{
+      background:#111;
+      color:white;
+      text-align:center;
+      padding:80px 20px;
+      margin-top:90px;
+      border-radius:30px;
+    }
+
+    .cta h2{
+      font-size:2.7rem;
+      margin-bottom:20px;
+    }
+
+    .cta p{
+      max-width:700px;
+      margin:auto;
+      opacity:0.9;
+    }
+
+    footer{
+      text-align:center;
+      padding:40px 20px;
+      margin-top:60px;
+      color:#666;
+      font-size:0.95rem;
+    }
+
+    footer p{
+      margin-bottom:10px;
+    }
+
+    @media(max-width:768px){
+
+      .hero{
+        height:60vh;
+      }
+
+      .hero h1{
+        font-size:2.5rem;
+      }
+
+      .section-title{
+        font-size:1.8rem;
+      }
+
+      .cta h2{
+        font-size:2rem;
+      }
+
+      .intro{
+        padding:25px;
+      }
+
+      .nav-container{
+        flex-direction:column;
+        gap:15px;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <header class="navbar">
+    <div class="nav-container">
+      <h2>American Deli</h2>
+
+      <a href="https://americandehlimenu.com/" target="_blank">
+        Full Menu
+      </a>
+    </div>
+  </header>
+
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <h1>American Deli Menu Guide</h1>
+
+      <p>
+        Explore crispy wings, Philly cheesesteaks, burgers,
+        seafood combos, fresh salads, and more delicious
+        comfort food favorites.
+      </p>
+
+      <a href="https://americandehlimenu.com/" class="btn" target="_blank">
+        Explore Full Menu
+      </a>
+
+    </div>
+
+  </section>
+
+  <div class="container">
+
+    <div class="intro">
+
+      <p>
+        American Deli has become a favorite destination for food lovers who enjoy bold flavors, large portions, and affordable meals. The restaurant offers a wide selection of comfort food, including crispy chicken wings, Philly cheesesteaks, burgers, seafood dishes, fried rice, salads, and combo meals.
+
+        Whether you are planning a quick lunch, dinner with family, or late-night snack, the
+        <a href="https://americandehlimenu.com/" target="_blank">
+          American Deli menu
+        </a>
+        has something for everyone.
+      </p>
+
+    </div>
+
+  </div>
+
+</body>
+</html>
